@@ -18,7 +18,8 @@
 
            
 
-            month_payment = credit_amount * (credit_rate /12/100 + (credit_rate /12/100 / (Math.pow((1 +credit_rate /12/100),period_credit) - 1)));
+            month_payment = credit_amount * (credit_rate /12/100 + 
+            (credit_rate /12/100 / (Math.pow((1 +credit_rate /12/100),period_credit) - 1)));
             console.log(month_payment.toFixed(2));
             
             var main_debt = credit_amount
