@@ -5,8 +5,11 @@
             <title>Credit calculation</title>
     </head>
     <body>
+            <p id="demo"></p>
+
         <script>
            var credit_amount = 100000 ;
+           var credit_amount_info = credit_amount;
            var credit_rate = 10 ;//year;
            var period_credit = 6 ; //in month;
            var month_payment ; //month payment;
@@ -25,10 +28,21 @@
             var rate_payment = credit_amount * 0.1 / 12
             main_debt = month_payment - rate_payment
             credit_amount=credit_amount - main_debt
-            var k = total_sum.push([credit_amount, rate_payment, main_debt]);
+            var k = total_sum.push([ " ежемесячный платёж " + month_payment.toFixed(2)," сумма по процентам "+ rate_payment.toFixed(2),
+            " сумма по телу кредита " + main_debt.toFixed(2)]);
             
             }
             console.log(total_sum)
+
+            var text = "";
+            var g;
+            for (g = 0; g < total_sum.length; g++) {
+            text += total_sum[g] + "<br>";
+            }
+            document.getElementById("demo").innerHTML =  "Информация по платежу кредита на сумму " + credit_amount_info 
+            + " на " + period_credit + " месяцев по годовой процентной ставке " + credit_rate + " %" + "<br>"+ text;
+
+
 
 
 
