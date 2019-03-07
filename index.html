@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <title>Credit calculation</title>
+    </head>
+    <body>
+        <script>
+           var credit_amount = 100000 ;
+           var credit_rate = 10 ;//year;
+           var period_credit = 6 ; //in month;
+           var x ; //month payment;
+           var z = credit_rate /12/100;
+           var h = 1 +z;
+           var y = Math.pow(h,period_credit)
 
+            x = credit_amount * (z + (z / (y - 1)));
+            console.log(z, y, x.toFixed(2));
+            main_debt = 0;
+
+            var credit_remain = credit_amount - main_debt
+            var rate_payment = credit_amount * 0.1/12
+            var main_debt = x- rate_payment
+            console.log(credit_remain, rate_payment, main_debt)
+
+
+
+
+        
+        
+        
+        </script>
+    </body>
+
+</html>
