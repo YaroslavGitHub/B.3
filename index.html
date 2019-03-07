@@ -9,19 +9,26 @@
            var credit_amount = 100000 ;
            var credit_rate = 10 ;//year;
            var period_credit = 6 ; //in month;
-           var x ; //month payment;
-           var z = credit_rate /12/100;
-           var h = 1 +z;
-           var y = Math.pow(h,period_credit)
+           var month_payment ; //month payment;
+           var total_sum = []; //summary
 
-            x = credit_amount * (z + (z / (y - 1)));
-            console.log(z, y, x.toFixed(2));
-            main_debt = 0;
 
-            var credit_remain = credit_amount - main_debt
-            var rate_payment = credit_amount * 0.1/12
-            var main_debt = x- rate_payment
-            console.log(credit_remain, rate_payment, main_debt)
+           
+
+            month_payment = credit_amount * (credit_rate /12/100 + (credit_rate /12/100 / (Math.pow((1 +credit_rate /12/100),period_credit) - 1)));
+            console.log(month_payment.toFixed(2));
+            
+            var main_debt = credit_amount
+            
+            for(var i = 0; i < period_credit; i++ ){
+            
+            var rate_payment = credit_amount * 0.1 / 12
+            main_debt = month_payment - rate_payment
+            credit_amount=credit_amount - main_debt
+            var k = total_sum.push([credit_amount, rate_payment, main_debt]);
+            
+            }
+            console.log(total_sum)
 
 
 
