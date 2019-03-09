@@ -8,38 +8,44 @@
             <p id="demo"></p>
 
         <script>
-           var credit_amount = 100000 ;
-           var credit_amount_info = credit_amount;
-           var credit_rate = 30 ;//year;
-           var period_credit = 24 ; //in month;
-           var month_payment ; //month payment;
-           var total_sum = []; //summary
+                var credit_amount = 200000 ;
+                var credit_amount_info = credit_amount;
+                var credit_rate = 30 ;//year;
+                var period_credit = 24 ; //in month;
+                var month_payment ; //month payment;
+                var total_sum = []; //summary
+                
+                
            
-            month_payment = credit_amount * (credit_rate /12/100 + 
-            (credit_rate /12/100 / (Math.pow((1 +credit_rate /12/100),period_credit) - 1)));
-            console.log(month_payment.toFixed(2));
+                    month_payment = credit_amount * (credit_rate /12/100 + 
+                    (credit_rate /12/100 / (Math.pow((1 +credit_rate /12/100),period_credit) - 1)));
+                    console.log(month_payment.toFixed(2));
+                    
+                
             
-            var main_debt = credit_amount
             
-            for(var i = 0; i < period_credit; i++ ){
-            
-            var rate_payment = credit_amount * credit_rate/ 100 / 12
-            main_debt = month_payment - rate_payment
-            credit_amount=credit_amount - main_debt
+                    for(var i = 0; i < period_credit; i++ ){
+                
+                        var rate_payment = credit_amount * credit_rate/ 100 / 12
+                        main_debt = month_payment - rate_payment
+                        credit_amount=credit_amount - main_debt
 
-            
-            var k = total_sum.push([ " ежемесячный платёж " + month_payment.toFixed(2)," сумма по процентам "+ rate_payment.toFixed(2),
-            " сумма по телу кредита " + main_debt.toFixed(2)]);
-            
-            }
-            console.log(total_sum)
-            var text = "";
-            var g;
-            for (g = 0; g < total_sum.length; g++) {
-            text += total_sum[g] + "<br>";
-            }
-            document.getElementById("demo").innerHTML =  "Информация по платежу кредита на сумму " + credit_amount_info 
-            + " на " + period_credit + " месяцев по годовой процентной ставке " + credit_rate + " %" + "<br>"+ text;
+                    
+                        var k = total_sum.push([ " ежемесячный платёж " + month_payment.toFixed(2)," сумма по процентам "+ rate_payment.toFixed(2),
+                        " сумма по телу кредита " + main_debt.toFixed(2)]);
+                    
+                }
+                console.log(total_sum)
+
+                var text = "";
+                var g;
+
+                for (g = 0; g < total_sum.length; g++) {
+                    text += total_sum[g] + "<br>";
+                    }
+  
+                document.getElementById("demo").innerHTML =  "Информация по платежу кредита на сумму " + credit_amount_info 
+                + " на " + period_credit + " месяцев по годовой процентной ставке " + credit_rate + " %" + "<br>"+ text;
         
         
         
